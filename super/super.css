@@ -1,0 +1,263 @@
+@import url("https://fonts.googleapis.com/css?family=Amatic+SC|Dawning+of+a+New+Day|League+Script|Loved+by+the+King|Waiting+for+the+Sunrise");
+
+body,
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+  font-family: "Waiting for the Sunrise", cursive;
+}
+
+#welcome {
+  position: fixed;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+  font-size: 6vmin;
+  color: rgba(0, 0, 51, 0.3);
+  font-family: "Amatic SC", cursive;
+  z-index: 1;
+}
+
+.paper {
+  width: 80vmin;
+  height: 90vmin;
+  background-image: repeating-linear-gradient(90deg, lightblue, 1px, transparent 1px, transparent 20px),
+    repeating-linear-gradient(0deg, lightblue, 1px, white 1px, white 20px);
+  background-size: 20px 20px;
+  background-origin: content-box;
+  padding: 20px;
+  position: relative;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5), 0 0 50px rgba(0, 0, 0, 0.1) inset;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rotated {
+  transform: rotate(-3deg);
+}
+
+#game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+#game,
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  /* Use the same gap for consistency */
+  background-color: rgba(0, 0, 51, 0.1);
+  padding: 5px;
+  border-radius: 5px;
+  width: 80%;
+  /* Standardized width */
+  aspect-ratio: 1 / 1;
+  /* Standardized aspect ratio */
+  margin-top: 10px;
+  /* Consistent margin */
+}
+
+
+.board div {
+  background-color: rgba(0, 0, 51, 0.05);
+  border: 1px solid black;
+  /* Pencil-like dashed border */
+  border-radius: 3px;
+}
+
+
+.cell {
+  aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5vmin;  /* Keep it responsive but ensure consistency */
+  font-weight: bold;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 2px;
+  width: 100%; /* Add fixed width */
+  height: 100%; /* Add fixed height */
+}
+
+
+.cell:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+#status {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 4vmin;
+  color: #000033;
+}
+
+.active-board {
+  background-color: rgba(170, 255, 170, 0.3);
+}
+
+.won-board {
+  background-color: rgba(255, 170, 170, 0.3);
+}
+
+#reset {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  font-family: "Waiting for the Sunrise", cursive;
+  font-size: 2.5vmin;
+  background-color: rgba(0, 0, 51, 0.1);
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+#reset:hover {
+  transform: rotate(3deg) scale(1.1);
+  background-color: rgba(0, 0, 51, 0.2);
+}
+
+/* footer */
+
+.footer {
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  padding: 10px 0;
+  border-top: 1px solid #ccc;
+  gap:10px;
+}
+
+.footer input[type="radio"] {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.footer a {
+  text-decoration: underline;
+  color: #6b4e33;
+  margin: 0 10px;
+}
+
+.footer label {
+  margin-right: 5px;
+}
+
+.footer a:hover {
+  color: #333;
+}
+
+/* Share Buttons Styles */
+:root {
+  --button-height: 30px;
+  --box-width: 300px;
+  --box-height: 212px;
+}
+
+.share-buttons {
+  position: fixed;
+  width: var(--box-width);
+  height: var(--box-height);
+  top: 50%;
+  right: 200px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  z-index: 1;
+}
+
+.share-button {
+  display: flex;
+  position: relative;
+  height: var(--button-height);
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.share-button:first-child {
+  margin-top: 0;
+}
+
+.share-button:hover .share-button-primary {
+  box-shadow: 1px 0 0 0 rgba(0, 0, 0, .1);
+}
+
+.share-button:hover .share-button-secondary-content {
+  transform: translate3d(0, 0, 0);
+}
+
+.share-button-primary {
+  position: relative;
+  background: #f0f0f0;
+  width: var(--button-height);
+  height: var(--button-height);
+  border-radius: calc(var(--button-height) / 2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.share-button-icon {
+  color: #242424;
+  font-size: 16px;
+}
+
+.share-button-secondary {
+  overflow: hidden;
+  height: var(--button-height);
+  position: absolute;
+  right: calc(var(--button-height) / 2);
+}
+
+.share-button-secondary-content {
+  font-family: sans-serif;
+  font-size: .75em;
+  background: #f0f0f0;
+  height: var(--button-height);
+  text-align: left;
+  padding-left: calc(var(--button-height) * .8);
+  padding-right: calc(var(--button-height) * .6);
+  line-height: var(--button-height);
+  color: #242424;
+  border-radius: calc(var(--button-height) / 2) 0 0 calc(var(--button-height) / 2);
+  transform: translate3d(100%, 0, 0);
+  transition: transform 175ms ease;
+  white-space: nowrap;
+}
+
+/* responsivness */
+/* Mobile responsiveness for smaller screens */
+@media (max-width: 768px) {
+  #welcome {
+    display: none;  /* Hides the welcome text */
+  }
+
+  .share-buttons {
+    display: none;  /* Hides the share buttons */
+  }
+
+  .footer {
+    font-size: 12px; /* Adjust footer text size for mobile */
+  }
+
+}
